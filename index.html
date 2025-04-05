@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATOR | MENU</title>
+    <link rel="icon" href="image/call/logo.png" type="image/png"> 
+    <style>
+        
+        html {
+            overflow-x: hidden;
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            position: relative;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            font-family: 'Intro', Arial, sans-serif;
+        }
+
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        
+        .holographic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(0, 191, 255, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 40% 60%, rgba(255, 20, 147, 0.15) 0%, transparent 25%);
+            animation: hologramMove 20s infinite alternate;
+        }
+
+        @keyframes hologramMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+       
+        .dynamic-island-container {
+            position: fixed;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 9999;
+        }
+        
+        .dynamic-island {
+            background: rgba(20, 20, 30, 0.85);
+            border-radius: 32px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            max-width: 300px;
+            width: auto;
+            will-change: transform, opacity;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dynamic-island.hidden {
+            transform: translateX(-50%) translateY(-100px);
+            opacity: 0;
+        }
+        
+        .di-title {
+            font-weight: 900;
+            font-size: 18px;
+            color: white;
+            white-space: nowrap;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .di-divider {
+            width: 1px;
+            height: 24px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+        
+        .di-telegram {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #0088cc, #00a8ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            box-shadow: 0 2px 10px rgba(0, 136, 204, 0.4);
+        }
+        
+        .di-telegram img {
+            width: 18px;
+            height: 18px;
+        }
+
+       
+        .language-switcher {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(30, 30, 40, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-switcher img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .language-switcher:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(100, 149, 237, 0.6);
+        }
+
+        
+        .support-button {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: rgba(40, 40, 50, 0.85);
+            border-radius: 24px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 9998;
+            text-decoration: none;
+            opacity: 0;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .support-button.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) scale(1);
+        }
+        
+        .support-button:hover {
+            background: rgba(60, 60, 70, 0.9);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 0 20px rgba(100, 149, 237, 0.5);
+        }
+        
+        .support-bot-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: pulse 2s infinite;
+        }
+        
+        .support-text {
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            white-space: nowrap;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        
+        @font-face {
+            font-family: 'Intro';
+            src: url('image/call/intro.otf') format('opentype');
+        }
+
+        .language-selection {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .language-option {
+            margin: 0 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, box-shadow 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .language-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(100, 149, 237, 0.7);
+        }
+
+        
+        .tab {
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(20, 20, 30, 0.7); 
+            padding: 8px 0; 
+            border-radius: 20px 20px 0 0; 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            height: 50px;
+        }
+
+        .tab button {
+            background-color: transparent;
+            flex: 1 0 auto;
+            margin: 0 5px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 8px 12px; 
+            transition: all 0.3s ease;
+            color: #fff;
+            text-align: center;
+            border-radius: 15px; 
+            font-size: 14px; 
+            font-family: 'Intro', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 40px; 
+        }
+
+        .tab button img {
+            width: 20px; 
+            height: 20px;
+            margin-bottom: 2px;
+        }
+
+        .tab button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .tab button.active {
+            background: rgba(0, 210, 255, 0.2); 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3), 
+                        inset 0 0 10px rgba(0, 210, 255, 0.3); 
+            border: 1px solid rgba(0, 210, 255, 0.3); 
+        }
+
+       
+        .tab button:active {
+            transform: translateY(1px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+
+        .tabcontent {
+            display: none;
+            overflow: auto;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-top: none;
+            overflow: auto;
+            flex-grow: 1;
+            margin-top: 0px;
+            margin-bottom: 50px;
+        }
+
+        .tabcontent.active {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .game {
+            flex: 1 1 40%;
+            max-width: 209px;
+            margin: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .game:hover {
+            transform: translateY(-5px);
+        }
+
+        .game img:not(.secretimg) {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            max-width: 200px;
+            border-radius: 20px;
+            box-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(100, 149, 237, 0.4),
+                0 0 30px rgba(0, 191, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .game img:not(.secretimg)::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5, #00d2ff);
+            z-index: -1;
+            opacity: 0.7;
+            filter: blur(10px);
+        }
+
+        .game:hover img:not(.secretimg) {
+            box-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.5),
+                0 0 30px rgba(100, 149, 237, 0.6),
+                0 0 45px rgba(0, 191, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        @media (max-width: 400px) {
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .game {
+                flex: 0 1 48%;
+                max-width: 48%;
+                margin: 1% 1%;
+                padding-top: 10px;
+            }
+
+            .game img:not(.secretimg) {
+                height: 140px !important;
+                width: auto !important;
+                max-width: 100% !important;
+                border-radius: 20px !important;
+            }
+        }
+
+        .game-info {
+            width: 100%;
+            margin-top: 10px;
+            font-family: 'Intro', Arial, sans-serif;
+        }
+
+        .game h3 {
+            font-size: 18px;
+            margin: 5px 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        
+        .game button {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            width: 130px;
+            border-radius: 25px;
+            background: rgba(0, 210, 255, 0.15); 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3), 
+                        inset 0 0 10px rgba(0, 210, 255, 0.2); 
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: 'Intro', Arial, sans-serif;
+            border: none;
+            margin-top: 5px;
+            border: 1px solid rgba(0, 210, 255, 0.3); 
+            backdrop-filter: blur(5px);
+        }
+
+        .game button:hover {
+            background: rgba(0, 210, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4), 
+                        inset 0 0 15px rgba(0, 210, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .game button:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3), 
+                        inset 0 0 5px rgba(0, 210, 255, 0.2);
+            transition: all 0.1s ease;
+        }
+
+       
+        .secret-game {
+            margin-top: 50px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .secretimg {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow:
+                0 0 20px rgba(255, 0, 0, 0.8),
+                0 0 20px rgba(255, 127, 0, 0.8),
+                0 0 20px rgba(255, 255, 0, 0.8),
+                0 0 20px rgba(127, 255, 0, 0.8),
+                0 0 20px rgba(0, 255, 0, 0.8),
+                0 0 20px rgba(0, 255, 127, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 127, 255, 0.8),
+                0 0 20px rgba(0, 0, 255, 0.8),
+                0 0 20px rgba(127, 0, 255, 0.8),
+                0 0 20px rgba(255, 0, 255, 0.8),
+                0 0 20px rgba(255, 0, 127, 0.8);
+            animation: rainbowGlow 5s linear infinite;
+            filter: hue-rotate(0deg);
+            border: 2px solid white;
+        }
+
+        @keyframes rainbowGlow {
+            0%, 100% {
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .secret-game .game-info h3 {
+            font-family: 'Intro', Arial, sans-serif;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.7);
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: scale(0.95);
+            visibility: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #1e1e2e, #2a2a3a);
+            margin: auto;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 80%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            color: white;
+        }
+
+        .modal-content h2 {
+            color: white;
+            font-size: 24px;
+            margin: 10px 0 20px;
+            text-align: center;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        .close-button:hover {
+            color: #ff5555;
+        }
+
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            margin: auto;
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .dots-container {
+            text-align: center;
+            padding: 15px 0 5px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: #3a7bd5;
+            transform: scale(1.2);
+        }
+
+       
+        .loader {
+            border: 16px solid transparent;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite, extend 3s forwards;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes extend {
+            0% { border-top: 4px solid #3498db; }
+            25% { border-top: 16px solid #3498db; border-right: 4px solid #3498db; }
+            50% { border-top: 16px solid #3498db; border-right: 16px solid #3498db; border-bottom: 4px solid #3498db; }
+            75% { border-top: 16px solid #3498db; border-right: 16px solid #3498db; border-bottom: 16px solid #3498db; border-left: 4px solid #3498db; }
+            100% { border: 16px solid #3498db; }
+        }
+
+        
+        .modal-mini {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content-mini {
+            background: linear-gradient(145deg, #1e1e2e, #2a2a3a);
+            padding: 25px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .close-button-mini {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+
+        .close-button-mini:hover {
+            color: #ff5555;
+        }
+
+        
+        .device-info {
+            margin: 20px 0;
+            font-size: 16px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateY(-20px);
+            opacity: 0;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .device-info.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .detect-button, .start-button {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 24px;
+            width: 180px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #4CAF50 0%, #087f23 100%);
+            box-shadow: 0 6px #065f18, 0 -6px #4CAF50 inset;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: 'Intro', Arial, sans-serif;
+            display: block;
+            margin: 10px auto;
+            border: none;
+        }
+
+        .detect-button:hover, .start-button:hover {
+            background: linear-gradient(145deg, #087f23 0%, #4CAF50 100%);
+            box-shadow: 0 8px #065f18, 0 -6px #4CAF50 inset;
+            transform: translateY(-3px);
+        }
+
+        .detect-button:active, .start-button:active {
+            box-shadow: 0 3px #065f18, 0 -3px #4CAF50 inset;
+            transform: translateY(2px);
+        }
+
+       
+        .image-container {
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 190px;
+            height: 140px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .image-container img:hover {
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        .title {
+            margin-top: 100px;
+            margin-bottom: 10px;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 28px;
+            text-align: center;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        
+        canvas#particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="holographic-bg"></div>
+    
+    
+    <div class="dynamic-island-container">
+        <div class="dynamic-island" id="dynamicIsland">
+            <div class="di-title">ATOR | AI SOFTWARE</div>
+            <div class="di-divider"></div>
+            <a href="https://t.me/+HnReHt7bLupmZjky" target="_blank" class="di-telegram">
+                <img src="https://telegram.org/img/t_logo.png" alt="Telegram">
+            </a>
+        </div>
+        
+        
+        <div class="language-switcher" id="languageSwitcher">
+            <img src="image/contry/en.png" alt="Language" id="currentLanguageFlag">
+        </div>
+    </div>
+
+    
+    <a href="https://t.me/deIIovar" target="_blank" class="support-button" id="supportButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png" alt="Support" class="support-bot-icon">
+        <span class="support-text">Support</span>
+    </a>
+
+    
+    <div class="stars" id="stars"></div>
+
+    
+    <div id="Contact" class="tabcontent">
+        <div class="image-container">
+            <h2 class="title" id="game-picker-title">GAME PICKER</h2>
+            <img src="image/call/secret.png" alt="Secret Image">
+        </div>
+        <p id="device-output" class="device-info">Device not detected</p>
+        <button onclick="detectDevice()" class="detect-button" id="detect-button">Detect device</button>
+        <button onclick="startGame()" class="start-button" id="start-button">Start</button>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <button class="close-button" onclick="closeModal()">&times;</button>
+                <h2>Instruction</h2>
+                <div class="carousel">
+                    <div class="slides" style="width: 200%; transition: transform 0.5s ease;">
+                        <div class="slide" style="width: 50%; float: left;">
+                            <img src="inst1.png" alt="Instruction 1">
+                            <p style="text-align: center; margin-top: 10px;">Step 1: Click "Detect device" button</p>
+                        </div>
+                        <div class="slide" style="width: 50%; float: left;">
+                            <img src="inst2.png" alt="Instruction 2">
+                            <p style="text-align: center; margin-top: 10px;">Step 2: Click "Start" to begin</p>
+                        </div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div class="dots-container">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="miniModal" class="modal-mini">
+            <div class="modal-content-mini">
+                <button class="close-button-mini" onclick="closeMiniModal()">&times;</button>
+                <h2>Wait a minute!</h2>
+                <p>You need to wait 1 minute before starting the game again.</p>
+                <p>Please try again later.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="Games" class="tabcontent active">
+        <div class="row">
+            <div class="game">
+                <img src="image/game/1.png" alt="Mines Preview">
+                <div class="game-info">
+                    <h3 id="game1-title">Mines</h3>
+                    <button id="game1-button" onclick="openGame('mines')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/mimines.jpg" alt="Mines Preview">
+                <div class="game-info">
+                    <h3 id="game1-title">Mines Spribe</h3>
+                    <button id="game2-button" onclick="openGame('spribe')">Open</button>
+                </div>
+            </div>
+           
+            <div class="game">
+                <img src="image/game/4.png" alt="Bombucks Preview">
+                <div class="game-info">
+                    <h3 id="game3-title">Bombucks</h3>
+                    <button id="game4-button" onclick="openGame('bomBucks')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/3.png" alt="Brawl Pirates Preview">
+                <div class="game-info">
+                    <h3 id="game4-title">Brawl Pirates</h3>
+                    <button id="game5-button" onclick="openGame('brawlPirates')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/2.png" alt="Royal Mines Preview">
+                <div class="game-info">
+                    <h3 id="game5-title">Royal Mines</h3>
+                    <button id="game6-button" onclick="openGame('royalMines')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/penafon.png" alt="Penalty Shoot Preview">
+                <div class="game-info">
+                    <h3 id="game6-title">Penalty Shoot</h3>
+                    <button id="game7-button" onclick="openGame('penalty')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/footxiconca.png" alt="Football X Preview">
+                <div class="game-info">
+                    <h3 id="game7-title">Football X</h3>
+                    <button id="game9-button" onclick="openGame('footballX')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/11.png" alt="CoinFlip Preview">
+                <div class="game-info">
+                    <h3 id="game10-title">CoinFlip</h3>
+                    <button id="game10-button" onclick="openGame('coin')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/5.png" alt="Football X Preview">
+                <div class="game-info">
+                    <h3 id="game11-title">LuckyJet</h3>
+                    <button id="game11-button" onclick="openGame('lucky')">Open</button>
+                </div>
+            </div>
+            <div class="game">
+                <img src="image/game/6.png" alt="CoinFlip Preview">
+                <div class="game-info">
+                    <h3 id="game-title">Aviator</h3>
+                    <button id="game12-button" onclick="openGame('aviator')">Open</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Нижняя панель навигации -->
+<div class="tab">
+    <button class="tablinks games-icon" data-tab="Games" onclick="openTab(event, 'Games', this)">
+        <img src="image/call/game.png" alt="Games">
+        <span>Games</span>
+    </button>
+    <button class="tablinks contact-icon" data-tab="Contact" onclick="openTab(event, 'Contact', this)">
+        <img src="image/call/money.png" alt="Game Picker">
+        <span>Game Picker</span>
+    </button>
+</div>
+
+<audio id="aboutAudio" src="image/call/gif.mp3"></audio>
+
+<script>
+   
+    const languages = [
+        { code: 'en', flag: 'image/contry/en.png', name: 'English' },
+        { code: 'ru', flag: 'image/contry/ru.png', name: 'Русский' },
+        { code: 'hi', flag: 'image/contry/in.png', name: 'हिंदी' },
+        { code: 'br', flag: 'image/contry/br.png', name: 'Português (BR)' },
+        { code: 'es', flag: 'image/contry/es.png', name: 'Español' },
+        { code: 'uz', flag: 'image/contry/uz.png', name: 'O\'zbek' },
+        { code: 'az', flag: 'image/contry/az.png', name: 'Azərbaycan' },
+        { code: 'tr', flag: 'image/contry/tr.png', name: 'Türkçe' },
+        { code: 'pt', flag: 'image/contry/pt.png', name: 'Português' },
+        { code: 'ar', flag: 'image/contry/ar.png', name: 'العربية' }
+    ];
+    
+    let currentLanguageIndex = 0;
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const dynamicIsland = document.getElementById('dynamicIsland');
+        const supportButton = document.getElementById('supportButton');
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        let hideTimeout;
+        
+        
+        updateLanguageSwitcher();
+        
+        
+        languageSwitcher.addEventListener('click', function() {
+            currentLanguageIndex = (currentLanguageIndex + 1) % languages.length;
+            updateLanguageSwitcher();
+            changeLanguage(languages[currentLanguageIndex].code);
+        });
+        
+        
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        languageSwitcher.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        languageSwitcher.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+               
+                currentLanguageIndex = (currentLanguageIndex + 1) % languages.length;
+            } else if (touchEndX > touchStartX) {
+                
+                currentLanguageIndex = (currentLanguageIndex - 1 + languages.length) % languages.length;
+            }
+            updateLanguageSwitcher();
+            changeLanguage(languages[currentLanguageIndex].code);
+        }
+        
+        function updateLanguageSwitcher() {
+            const currentLanguage = languages[currentLanguageIndex];
+            document.getElementById('currentLanguageFlag').src = currentLanguage.flag;
+            document.getElementById('currentLanguageFlag').alt = currentLanguage.name;
+        }
+        
+        
+        dynamicIsland.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeout);
+            supportButton.classList.add('visible');
+        });
+        
+        
+        dynamicIsland.addEventListener('mouseleave', function() {
+            startHideTimer();
+        });
+        
+        
+        supportButton.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeout);
+        });
+        
+        
+        supportButton.addEventListener('mouseleave', function() {
+            startHideTimer();
+        });
+        
+        function startHideTimer() {
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(function() {
+                supportButton.classList.remove('visible');
+            }, 2000);
+        }
+        
+       
+        changeLanguage('en');
+        createStars();
+        showSlides(1);
+    });
+
+    
+    function createStars() {
+        const stars = document.getElementById('stars');
+        const count = 200; 
+
+        for(let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            const size = Math.random() * 3 + 1;
+            
+            star.style.left = x + '%';
+            star.style.top = y + '%';
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            
+            
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            star.style.setProperty('--opacity', Math.random() * 0.7 + 0.3);
+            
+            stars.appendChild(star);
+        }
+    }
+
+    
+    window.supportLink = "https://t.me/deIIovar";
+    document.getElementById('supportButton').href = window.supportLink;
+
+    const translations = {
+        en: {
+        gamePickerTitle: "GAME PICKER",
+        detectButton: "Detect device",
+        startButton: "Start",
+        game1Title: "Mines",
+        game1Button: "Open",
+        game2Title: "Mines Spibe",
+        game2Button: "Open",
+        game3Title: "Bombucks",
+        game3Button: "Open",
+        game4Title: "Brawl Pirates",
+        game4Button: "Open",
+        game5Title: "Royal Mines",
+        game5Button: "Open",
+        game6Title: "Penalty Shoot",
+        game6Button: "Open",
+        game7Title: "Football X",
+        game7Button: "Open",
+        game8Title: "Penalty Shoot",
+        game8Button: "Open",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Open",
+        game10Button: "Open",
+        game11Button: "Open",
+        game12Button: "Open",
+        game13Button: "Open",
+        telegramButton: "Go to telegram (RU)",
+        telegramButton2: "Go to telegram (EN)"
+    },
+    ru: {
+        gamePickerTitle: "ВЫБОР ИГР",
+        detectButton: "Определить устройство",
+        startButton: "Начать",
+        game1Title: "Mines",
+        game1Button: "Открыть",
+        game2Title: "Mines Spibe",
+        game2Button: "Открыть",
+        game3Title: "Bombucks",
+        game3Button: "Открыть",
+        game4Title: "Brawl Pirates",
+        game4Button: "Открыть",
+        game5Title: "Royal Mines",
+        game5Button: "Открыть",
+        game6Title: "Penalty Shoot",
+        game6Button: "Открыть",
+        game7Title: "Football X",
+        game7Button: "Открыть",
+        game8Title: "Penalty Shoot",
+        game8Button: "Открыть",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Открыть",
+        game10Button: "Открыть",
+        game11Button: "Открыть",
+        game12Button: "Открыть",
+        game13Button: "Открыть",
+        telegramButton: "Перейти в телеграм (RU)",
+        telegramButton2: "Перейти в телеграм (EN)"
+    },
+    hi: {
+        gamePickerTitle: "गेम पिकर",
+        detectButton: "डिवाइस का पता लगाएं",
+        startButton: "शुरू करें",
+        game1Title: "Mines",
+        game1Button: "खोलें",
+        game2Title: "Mines Spibe",
+        game2Button: "खोलें",
+        game3Title: "Bombucks",
+        game3Button: "खोलें",
+        game4Title: "Brawl Pirates",
+        game4Button: "खोलें",
+        game5Title: "Royal Mines",
+        game5Button: "खोलें",
+        game6Title: "Penalty Shoot",
+        game6Button: "खोलें",
+        game7Title: "Football X",
+        game7Button: "खोलें",
+        game8Title: "Penalty Shoot",
+        game8Button: "खोलें",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "खोलें",
+        game10Button: "खोलें",
+        game11Button: "खोलें",
+        game12Button: "खोलें",
+        game13Button: "खोलें",
+        telegramButton: "टेलीग्राम पर जाएं (RU)",
+        telegramButton2: "टेलीग्राम पर जाएं (EN)"
+    },
+    br: {
+        gamePickerTitle: "SELETOR DE JOGOS",
+        detectButton: "Detectar dispositivo",
+        startButton: "Iniciar",
+        game1Title: "Mines",
+        game1Button: "Abrir",
+        game2Title: "Mines Spibe",
+        game2Button: "Abrir",
+        game3Title: "Bombucks",
+        game3Button: "Abrir",
+        game4Title: "Brawl Pirates",
+        game4Button: "Abrir",
+        game5Title: "Royal Mines",
+        game5Button: "Abrir",
+        game6Title: "Penalty Shoot",
+        game6Button: "Abrir",
+        game7Title: "Football X",
+        game7Button: "Abrir",
+        game8Title: "Penalty Shoot",
+        game8Button: "Abrir",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Abrir",
+        game10Button: "Abrir",
+        game11Button: "Abrir",
+        game12Button: "Abrir",
+        game13Button: "Abrir",
+        telegramButton: "Ir para o Telegram (RU)",
+        telegramButton2: "Ir para o Telegram (EN)"
+    },
+    es: {
+        gamePickerTitle: "SELECCIONADOR DE JUEGOS",
+        detectButton: "Detectar dispositivo",
+        startButton: "Iniciar",
+        game1Title: "Mines",
+        game1Button: "Abrir",
+        game2Title: "Mines Spibe",
+        game2Button: "Abrir",
+        game3Title: "Bombucks",
+        game3Button: "Abrir",
+        game4Title: "Brawl Pirates",
+        game4Button: "Abrir",
+        game5Title: "Royal Mines",
+        game5Button: "Abrir",
+        game6Title: "Penalty Shoot",
+        game6Button: "Abrir",
+        game7Title: "Football X",
+        game7Button: "Abrir",
+        game8Title: "Penalty Shoot",
+        game8Button: "Abrir",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Abrir",
+        game10Button: "Abrir",
+        game11Button: "Abrir",
+        game12Button: "Abrir",
+        game13Button: "Abrir",
+        telegramButton: "Ir a Telegram (RU)",
+        telegramButton2: "Ir a Telegram (EN)"
+    },
+    uz: {
+        gamePickerTitle: "O'YIN TANLOVCHI",
+        detectButton: "Qurilmani aniqlash",
+        startButton: "Boshlash",
+        game1Title: "Mines",
+        game1Button: "Ochish",
+        game2Title: "Mines Spibe",
+        game2Button: "Ochish",
+        game3Title: "Bombucks",
+        game3Button: "Ochish",
+        game4Title: "Brawl Pirates",
+        game4Button: "Ochish",
+        game5Title: "Royal Mines",
+        game5Button: "Ochish",
+        game6Title: "Penalty Shoot",
+        game6Button: "Ochish",
+        game7Title: "Football X",
+        game7Button: "Ochish",
+        game8Title: "Penalty Shoot",
+        game8Button: "Ochish",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Ochish",
+        game10Button: "Ochish",
+        game11Button: "Ochish",
+        game12Button: "Ochish",
+        game13Button: "Ochish",
+        telegramButton: "Telegramga o'tish (RU)",
+        telegramButton2: "Telegramga o'tish (EN)"
+    },
+    az: {
+        gamePickerTitle: "OYUN SEÇİCİ",
+        detectButton: "Cihazı aşkar et",
+        startButton: "Başla",
+        game1Title: "Mines",
+        game1Button: "Aç",
+        game2Title: "Mines Spibe",
+        game2Button: "Aç",
+        game3Title: "Bombucks",
+        game3Button: "Aç",
+        game4Title: "Brawl Pirates",
+        game4Button: "Aç",
+        game5Title: "Royal Mines",
+        game5Button: "Aç",
+        game6Title: "Penalty Shoot",
+        game6Button: "Aç",
+        game7Title: "Football X",
+        game7Button: "Aç",
+        game8Title: "Penalty Shoot",
+        game8Button: "Aç",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Aç",
+        game10Button: "Aç",
+        game11Button: "Aç",
+        game12Button: "Aç",
+        game13Button: "Aç",
+        telegramButton: "Teleqrama keç (RU)",
+        telegramButton2: "Teleqrama keç (EN)"
+    },
+    tr: {
+        gamePickerTitle: "OYUN SEÇİCİ",
+        detectButton: "Cihazı tespit et",
+        startButton: "Başlat",
+        game1Title: "Mines",
+        game1Button: "Aç",
+        game2Title: "Mines Spibe",
+        game2Button: "Aç",
+        game3Title: "Bombucks",
+        game3Button: "Aç",
+        game4Title: "Brawl Pirates",
+        game4Button: "Aç",
+        game5Title: "Royal Mines",
+        game5Button: "Aç",
+        game6Title: "Penalty Shoot",
+        game6Button: "Aç",
+        game7Title: "Football X",
+        game7Button: "Aç",
+        game8Title: "Penalty Shoot",
+        game8Button: "Aç",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Aç",
+        game10Button: "Aç",
+        game11Button: "Aç",
+        game12Button: "Aç",
+        game13Button: "Aç",
+        telegramButton: "Telegrame git (RU)",
+        telegramButton2: "Telegrame git (EN)"
+    },
+    pt: {
+        gamePickerTitle: "ESCOLHEDOR DE JOGOS",
+        detectButton: "Detectar dispositivo",
+        startButton: "Iniciar",
+        game1Title: "Mines",
+        game1Button: "Abrir",
+        game2Title: "Mines Spibe",
+        game2Button: "Abrir",
+        game3Title: "Bombucks",
+        game3Button: "Abrir",
+        game4Title: "Brawl Pirates",
+        game4Button: "Abrir",
+        game5Title: "Royal Mines",
+        game5Button: "Abrir",
+        game6Title: "Penalty Shoot",
+        game6Button: "Abrir",
+        game7Title: "Football X",
+        game7Button: "Abrir",
+        game8Title: "Penalty Shoot",
+        game8Button: "Abrir",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "Abrir",
+        game10Button: "Abrir",
+        game11Button: "Abrir",
+        game12Button: "Abrir",
+        game13Button: "Abrir",
+        telegramButton: "Ir para o Telegram (RU)",
+        telegramButton2: "Ir para o Telegram (EN)"
+    },
+    ar: {
+        gamePickerTitle: "مُختار الألعاب",
+        detectButton: "اكتشاف الجهاز",
+        startButton: "ابدأ",
+        game1Title: "Mines",
+        game1Button: "فتح",
+        game2Title: "Mines Spibe",
+        game2Button: "فتح",
+        game3Title: "Bombucks",
+        game3Button: "فتح",
+        game4Title: "Brawl Pirates",
+        game4Button: "فتح",
+        game5Title: "Royal Mines",
+        game5Button: "فتح",
+        game6Title: "Penalty Shoot",
+        game6Button: "فتح",
+        game7Title: "Football X",
+        game7Button: "فتح",
+        game8Title: "Penalty Shoot",
+        game8Button: "فتح",
+        game9Title: "Football X",
+        game10Title: "CoinFlip",
+        game9Button: "فتح",
+        game10Button: "فتح",
+        game11Button: "فتح",
+        game12Button: "فتح",
+        game13Button: "فتح",
+        telegramButton: "اذهب إلى Telegram (RU)",
+        telegramButton2: "اذهب إلى Telegram (EN)"
+    }
+    };
+
+    function changeLanguage(lang) {
+        console.log("Changing language to: ", lang);
+        const langData = translations[lang];
+        
+        if (langData) {
+            document.getElementById('game-picker-title').innerText = langData.gamePickerTitle;
+            document.getElementById('detect-button').innerText = langData.detectButton;
+            document.getElementById('start-button').innerText = langData.startButton;
+            document.getElementById('game-picker-title').innerText = translations[lang].gamePickerTitle;
+
+        document.getElementById('detect-button').innerText = translations[lang].detectButton;
+        document.getElementById('start-button').innerText = translations[lang].startButton;
+
+        document.getElementById('game1-title').innerText = translations[lang].game1Title;
+        document.getElementById('game1-button').innerText = translations[lang].game1Button;
+
+        document.getElementById('game2-button').innerText = translations[lang].game2Button;
+
+
+        document.getElementById('game4-title').innerText = translations[lang].game4Title;
+        document.getElementById('game4-button').innerText = translations[lang].game4Button;
+
+        document.getElementById('game5-title').innerText = translations[lang].game5Title;
+        document.getElementById('game5-button').innerText = translations[lang].game5Button;
+
+        document.getElementById('game6-title').innerText = translations[lang].game6Title;
+        document.getElementById('game6-button').innerText = translations[lang].game6Button;
+
+        document.getElementById('game7-title').innerText = translations[lang].game7Title;
+        document.getElementById('game7-button').innerText = translations[lang].game7Button;
+        document.getElementById('game9-button').innerText = translations[lang].game7Button;
+
+        document.getElementById('game10-title').innerText = translations[lang].game10Title;
+        document.getElementById('game10-button').innerText = translations[lang].game10Button;
+
+        document.getElementById('game11-button').innerText = translations[lang].game11Button;
+
+        document.getElementById('game12-button').innerText = translations[lang].game12Button;
+
+            
+            
+            const miniModal = document.querySelector('.modal-content-mini');
+            if (miniModal) {
+                miniModal.querySelector('h2').innerText = langData.waitTitle;
+                miniModal.querySelectorAll('p')[0].innerText = langData.waitText;
+            }
+            
+           
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length >= 2) {
+                slides[0].querySelector('p').innerText = langData.step1;
+                slides[1].querySelector('p').innerText = langData.step2;
+            }
+            
+            
+            const langIndex = languages.findIndex(l => l.code === lang);
+            if (langIndex !== -1) {
+                currentLanguageIndex = langIndex;
+                updateLanguageSwitcher();
+            }
+        } else {
+            console.error("Translations not found for language: ", lang);
+        }
+    }
+
+    var slideIndex = 1;
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        var dots = document.getElementsByClassName("dot");
+        var slidesContainer = document.querySelector(".slides");
+
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slidesContainer.style.transform = `translateX(${-(slideIndex - 1) * 100 / slides.length}%)`;
+        dots[slideIndex - 1].className += " active";
+    }
+
+    function openTab(evt, tabName, button) {
+        var i, tabcontent, tablinks;
+        var miniModal = document.getElementById('miniModal');
+        var aboutGif = document.getElementById('aboutGif');
+    
+       
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove('active');
+        }
+    
+        
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+    
+        
+        document.getElementById(tabName).style.display = "flex";
+        document.getElementById(tabName).classList.add('active');
+        button.classList.add("active");
+    
+        
+        if (tabName === 'Games') {
+            window.scrollTo({ top: 45, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    
+        
+        if (tabName === 'About') {
+            var newAboutGif = aboutGif.cloneNode(true);
+            aboutGif.parentNode.replaceChild(newAboutGif, aboutGif);
+            aboutGif = newAboutGif; 
+            aboutAudio.play();
+        } else {
+            aboutAudio.pause();
+            aboutAudio.currentTime = 0;
+        }
+    
+        
+        if (tabName === 'Contact') {
+            miniModal.style.display = 'none';
+        }
+    }
+
+    function detectDevice() {
+        var ua = navigator.userAgent;
+        var deviceType;
+        var deviceModel = "";
+
+        if (/android/i.test(ua)) {
+            deviceType = "Android";
+            var match = ua.match(/Android.*?; (\w+)\s(\w+)\s/);
+            deviceModel = match ? match[1] + " " + match[2] : "";
+        } else if (/iPhone|iPad|iPod/i.test(ua)) {
+            deviceType = "iOS";
+            if (/iPhone/i.test(ua)) {
+                deviceModel = "iPhone";
+            } else if (/iPad/i.test(ua)) {
+                deviceModel = "iPad";
+            } else if (/iPod/i.test(ua)) {
+                deviceModel = "iPod";
+            }
+        } else {
+            deviceType = "Desktop";
+        }
+
+        var output = deviceModel ? deviceType + " (" + deviceModel + ")" : deviceType;
+        var deviceOutput = document.getElementById("device-output");
+        deviceOutput.classList.remove("visible");
+        setTimeout(function() {
+            deviceOutput.textContent = output;
+            deviceOutput.classList.add("visible");
+        }, 10);
+    }
+
+    function triggerHapticFeedback() {
+        if (navigator.vibrate) {
+            navigator.vibrate(200);
+        }
+    }
+
+    function startGame() {
+        console.log(document.getElementById("device-output").textContent);
+        if (document.getElementById("device-output").textContent.trim() === "Device not detected") {
+            showModal();
+        } else {
+            const now = new Date().getTime();
+            const lastGameTime = localStorage.getItem('lastGameTime');
+            if (lastGameTime && now - lastGameTime < 60000) {
+                showMiniModal();
+                return;
+            }
+            var randomNumber = Math.floor(Math.random() * 5) + 1;
+            var probability = Math.floor(Math.random() * 12) + 85;
+            localStorage.setItem('lastGameTime', now);
+            localStorage.setItem('lastGameImage', randomNumber);
+            localStorage.setItem('lastProbability', probability);
+
+            var imgContainer = document.querySelector('.image-container');
+            var oldImage = imgContainer.querySelector('img');
+            oldImage.style.display = 'none';
+
+            var loaderDiv = document.createElement('div');
+            loaderDiv.className = 'loader';
+            imgContainer.appendChild(loaderDiv);
+
+            setTimeout(function() {
+                loaderDiv.remove();
+                oldImage.style.display = 'block';
+                oldImage.src = randomNumber + '.png';
+                oldImage.style.marginLeft = "25px";
+            }, 3000);
+        }
+    }
+
+    function closeMiniModal() {
+        var miniModal = document.getElementById('miniModal');
+        miniModal.style.display = 'none';
+    }
+
+    function showModal() {
+        var modal = document.getElementById("modal");
+        modal.style.display = 'flex';
+        requestAnimationFrame(() => {
+            modal.classList.add("show");
+        });
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("modal");
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 500);
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function openGame(game) {
+        triggerHapticFeedback();
+        var ua = navigator.userAgent;
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+        var links = {
+            mines: {
+                ios: 'CassinoGame/mines/index.html',
+                other: 'CassinoGame/mines/index.html'
+            },
+            spribe: {
+                ios: 'CassinoGame/minesind/index.html',
+                other: 'CassinoGame/minesind/index.html'
+            },
+            royalMines: {
+                ios: 'CassinoGame/royal/index.html',
+                other: 'CassinoGame/royal/index.html'
+            },
+            brawlPirates: {
+                ios: 'CassinoGame/brawlpir/index.html',
+                other: 'CassinoGame/brawlpir/index.html'
+            },
+            penalty: {
+                ios: 'CassinoGame/penalty/index.html',
+                other: 'CassinoGame/penalty/index.html'
+            },
+            bomBucks: {
+                ios: 'CassinoGame/bombucks/index.html',
+                other: 'CassinoGame/bombucks/index.html'
+            },
+            lucky: {
+                ios: 'CassinoGame/jet/index.html',
+                other: 'CassinoGame/jet/index.html'
+            },
+            aviator: {
+                ios: 'CassinoGame/avi/index.html',
+                other: 'CassinoGame/avi/index.html'
+            },
+            footballX: {
+                ios: 'CassinoGame/footx/index.html',
+                other: 'CassinoGame/footx/index.html'
+            },
+            coin: {
+                ios: 'CassinoGame/monetka/index.html',
+                other: 'CassinoGame/monetka/index.html'
+            },
+            minesnew: {
+                ios: 'CassinoGame/minesnew/Mines.html',
+                other: 'CassinoGame/minesnew/Mines.html'
+            },
+        };
+        var url = isIOS ? links[game].ios : links[game].other;
+        window.location.href = url;
+    }
+
+    function showMiniModal() {
+        var miniModal = document.getElementById('miniModal');
+        miniModal.style.display = 'flex';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        let gamesButton = document.querySelector('.tablinks.games-icon');
+        openTab(new Event('click'), 'Games', gamesButton);
+        showSlides(slideIndex);
+    });
+</script>
